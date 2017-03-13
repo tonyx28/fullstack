@@ -1,6 +1,6 @@
-# SplitWise
+# TripSplit
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
 [Trello link][trello]
 
@@ -46,11 +46,11 @@ sufficient CSS styling:
 **Objective:** Friends can be created, read, and destroyed through
 the API.
 
-### Phase 3: Bills (2 days)
+### Phase 3: Bills (3 days)
 
 **Objective:** Bills can be created, read, edited and destroyed through the API.
 
-### Phase 4: Transaction History (1 day)
+### Phase 4: Transaction History (2 day)
 
 **Objective:** Transaction history is shown and can be filtered based on friend selected.
 
@@ -63,7 +63,5 @@ the API.
 **Objective:** Make things pretty.
 
 ### Bonus Features (TBD)
-- [ ] 
-- [ ]
-- [ ]
-- [ ]
+- [ ] Groups
+- [ ] Fake "checkout"
