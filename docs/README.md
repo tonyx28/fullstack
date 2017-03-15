@@ -5,7 +5,7 @@
 [Trello link][trello]
 
 [heroku]: http://www.herokuapp.com
-[trello]: https://trello.com/
+[trello]: https://trello.com/b/f5VJo5To/tripsplit
 
 ## Minimum Viable Product
 
@@ -60,7 +60,7 @@ the API.
 
 ### Phase 6: - CSS Styling (1 day, W2 F 6pm)
 
-**Objective:** Make things pretty.
+**Objective:** Refine UX/UI.
 
 ### Bonus Features (TBD)
 - [ ] Groups
