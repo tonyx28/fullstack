@@ -27,7 +27,7 @@ class Greeting extends React.Component {
   personalGreeting(currentUser) {
     return(
       <div className="dropdown">
-        <button onClick={this.dropDown} className="dropbtn">{currentUser.username}</button>
+        <button onClick={this.dropDown} className="dropbtn-user">{currentUser.username}</button>
           <div id="myDropdown" className="dropdown-content">
             <a href="" className="logout-btn" onClick={this.logout}>Log out</a>
           </div>

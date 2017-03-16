@@ -1,6 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SessionFormContainer from '../session_form/session_form_container';
+import GreetingContainer from '../greeting/greeting_container';
 
 
-export default Header;
+class Navbar extends React.Component {
+
+  render() {
+    return(
+      <div className='navbar'>
+        <h1 className="site-name">TripSplit</h1>
+        <GreetingContainer />
+      </div>
+    )
+  }
+}
+
+
+
+export default Navbar;

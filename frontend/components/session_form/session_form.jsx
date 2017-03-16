@@ -7,11 +7,11 @@ import ModalStyle from './modal_style';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "", modalOpen: false, modalType: 'login' };
+		this.state = { username: "", password: "", formType: 'login' };
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
 		this.handleDemo = this.handleDemo.bind(this);
+		this.dropDown = this.dropDown.bind(this);
+		this.clickEvent = this.clickEvent.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -32,9 +32,9 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const user = this.state;
+		const user = {username: this.state.username, password: this.state.password};
 		console.log(user);
-		if (this.state.modalType === 'login') {
+		if (this.state.formType === 'login') {
 			this.props.login(user);
 		} else {
 			this.props.signup(user);
@@ -46,85 +46,116 @@ class SessionForm extends React.Component {
 		this.props.loadDemo();
 	}
 
-	navLink() {
-		if (this.state.modalType === "login") {
-			return <button onClick={this.openModal.bind(this, 'signup')}>Sign up instead!</button>;
-		} else {
-			return <button onClick={this.openModal.bind(this, 'login')}>Login instead!</button>;
-		}
+	clickEvent(formType){
+		this.setState({formType});
+		this.dropDown();
 	}
 
-	openModal(modalType) {
-		this.setState({
-			modalOpen: true,
-			modalType
-		});
+	dropDown(formType) {
+		this.setState({formType});
+    document.getElementById("myDropdown").classList.toggle("show");
 		this.props.clearErrors();
-	}
-
-	closeModal(){
-		this.setState({modalOpen: false});
-		this.props.clearErrors();
-	}
-
+  }
 	renderErrors() {
-		// console.log(this.props.errors);
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+
+		if(this.props.errors){
+			return(
+				<ul>
+					{this.props.errors.map((error, i) => (
+						<li key={`error-${i}`}>
+							{error}
+						</li>
+					))}
+				</ul>
+			)
+		} else {
+			<div></div>
+		};
 	}
+
 
 	render() {
 		return (
 			<div>
 				<nav className="login-signup">
-					<button onClick={this.openModal.bind(this, 'login')}>Log in</button>
+					<div className="dropdown">
+		        <button onClick={this.dropDown.bind(this,'login')} className="dropbtn-mint">Log in</button>
+		          <div id="myDropdown" className="dropdown-content">
+								<form className="login-form" onSubmit={this.handleSubmit}>
+									<div className="render-errors">
+										{this.renderErrors()}
+									</div>
+									<br/>
+									<div className="login-contents">
+										<br/>
+										<input type="text"
+													 value={this.state.username}
+													 onChange={this.update("username")}
+													 placeholder="Username"
+													 className="login-input" />
+										<br/>
+										<input type="password"
+													 value={this.state.password}
+													 onChange={this.update("password")}
+													 placeholder="Password"
+													 className="login-input" />
+										<br/>
+										<input type="submit" value="Submit" />
+										<br/>
+										<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
+									</div>
+								</form>
+		          </div>
+		      </div>
 					&nbsp; &nbsp;
-					<button onClick={this.openModal.bind(this, 'signup')}>Sign up!</button>
+					<div className="dropdown">
+						<button onClick={this.dropDown.bind(this,'signup')} className="dropbtn-orange">Sign up</button>
+							<div id="myDropdown" className="dropdown-content">
+								<form className="login-form" onSubmit={this.handleSubmit}>
+									<div className="render-errors">
+										{this.renderErrors()}
+									</div>
+									<div className="login-contents">
+										<br/>
+										<label>Username:
+											<input type="text"
+														 value={this.state.username}
+														 onChange={this.update("username")}
+														 className="login-input" />
+										</label>
+										<br/>
+										<label>Password:
+											<input type="password"
+														 value={this.state.password}
+														 onChange={this.update("password")}
+														 className="login-input" />
+										</label>
+										<br/>
+										<input type="submit" value="Sign up for TripSplit" />
+										<br/>
+										<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
+									</div>
+								</form>
+							</div>
+					</div>
 				</nav>
-				<Modal
-					contentLabel="Modal"
-					isOpen={this.state.modalOpen}
-					onRequestClose={this.closeModal}
-					style={ModalStyle}>
-					Split!
-
-					<br/>
-
-					Please {this.state.modalType} or {this.navLink()}
-					<form onSubmit={this.handleSubmit}>
-						{this.renderErrors()}
-						<div className="login-form">
-							<br/>
-							<label>Username:
-								<input type="text"
-										 	 value={this.state.username}
-											 onChange={this.update("username")}
-											 className="login-input" />
-							</label>
-							<br/>
-							<label>Password:
-								<input type="password"
-											 value={this.state.password}
-											 onChange={this.update("password")}
-											 className="login-input" />
-							</label>
-							<br/>
-							<input type="submit" value="Submit" />
-							<br/>
-							<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
-						</div>
-					</form>
-				</Modal>
 			</div>
 		);
 	}
 }
 
 export default withRouter(SessionForm);
+
+window.onClick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')){
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+	this.props.clearErrors();
+}
