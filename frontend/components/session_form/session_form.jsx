@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Modal from 'react-modal';
+import ModalStyle from './modal_style';
+
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
+		this.state = { username: "", password: "", modalOpen: false, modalType: 'login' };
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+		this.handleDemo = this.handleDemo.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -27,18 +33,42 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.processForm(user);
-	}
-
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
+		console.log(user);
+		if (this.state.modalType === 'login') {
+			this.props.login(user);
 		} else {
-			return <Link to="/login">log in instead</Link>;
+			this.props.signup(user);
 		}
 	}
 
+	handleDemo(e) {
+		e.preventDefault();
+		this.props.loadDemo();
+	}
+
+	navLink() {
+		if (this.state.modalType === "login") {
+			return <button onClick={this.openModal.bind(this, 'signup')}>Sign up instead!</button>;
+		} else {
+			return <button onClick={this.openModal.bind(this, 'login')}>Login instead!</button>;
+		}
+	}
+
+	openModal(modalType) {
+		this.setState({
+			modalOpen: true,
+			modalType
+		});
+		this.props.clearErrors();
+	}
+
+	closeModal(){
+		this.setState({modalOpen: false});
+		this.props.clearErrors();
+	}
+
 	renderErrors() {
+		// console.log(this.props.errors);
 		return(
 			<ul>
 				{this.props.errors.map((error, i) => (
@@ -52,35 +82,49 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to Trip Split!
+			<div>
+				<nav className="login-signup">
+					<button onClick={this.openModal.bind(this, 'login')}>Log in</button>
+					&nbsp; &nbsp;
+					<button onClick={this.openModal.bind(this, 'signup')}>Sign up!</button>
+				</nav>
+				<Modal
+					contentLabel="Modal"
+					isOpen={this.state.modalOpen}
+					onRequestClose={this.closeModal}
+					style={ModalStyle}>
+					Split!
+
 					<br/>
-					Please {this.props.formType} or {this.navLink()}
-					{this.renderErrors()}
-					<div className="login-form">
-						<br/>
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
-						<br/>
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
-						<br/>
-						<input type="submit" value="Submit" />
-					</div>
-				</form>
+
+					Please {this.state.modalType} or {this.navLink()}
+					<form onSubmit={this.handleSubmit}>
+						{this.renderErrors()}
+						<div className="login-form">
+							<br/>
+							<label>Username:
+								<input type="text"
+										 	 value={this.state.username}
+											 onChange={this.update("username")}
+											 className="login-input" />
+							</label>
+							<br/>
+							<label>Password:
+								<input type="password"
+											 value={this.state.password}
+											 onChange={this.update("password")}
+											 className="login-input" />
+							</label>
+							<br/>
+							<input type="submit" value="Submit" />
+							<br/>
+							<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
+						</div>
+					</form>
+				</Modal>
 			</div>
 		);
 	}
-
 }
 
 export default withRouter(SessionForm);
