@@ -2,17 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 import SessionFormContainer from '../session_form/session_form_container';
 
-class Greeting extends React.Component {
+class UserButton extends React.Component {
   constructor(props) {
     super(props);
 
     this.logout = this.logout.bind(this);
-  }
-
-  sessionLinks() {
-    return (
-      <SessionFormContainer />
-    )
   }
 
   dropDown() {
@@ -24,32 +18,26 @@ class Greeting extends React.Component {
     this.props.logout();
   }
 
-  personalGreeting(currentUser) {
-    return(
-      <div className="dropdown">
-        <button onClick={this.dropDown} className="dropbtn-user">{currentUser.username}</button>
-          <div id="myDropdown" className="dropdown-content">
-            <a href="" className="logout-btn" onClick={this.logout}>Log out</a>
-          </div>
-      </div>
-    );
-  }
-
   render() {
     return(
-      <div>
-        {this.props.currentUser ? this.personalGreeting(this.props.currentUser) : this.sessionLinks()}
+      <div className="user-dropdown">
+        <button onClick={this.dropDown} className="dropbtn"
+          id="dropbtn-user">{this.props.currentUser.username}</button>
+        <div id="myDropdown" className="user-dropdown-content">
+          <a href="" className="dropdown-item" id="settings-btn" >Settings</a>
+          <a href="" className="dropdown-item" id="logout-btn" onClick={this.logout}>Log out</a>
+        </div>
       </div>
     );
   }
 }
 
 
-export default Greeting;
+export default UserButton;
 
 window.onClick = function(event) {
   if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementByClassName("dropdown-content");
+    var dropdowns = document.getElementByClassName("user-dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];

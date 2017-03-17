@@ -12,8 +12,11 @@
  *
  *= require_self
  */
-
-
-@import "./components/session/session_form.scss";
-@import "./components/greeting/greeting.scss";
+//
+@import "./reset.scss";
 @import "./components/navbar/navbar.scss";
+@import "./components/user_button/user_button.scss";
+@import "./components/session/session_form.scss";
+// @import "./components/session/session_form_tmp.scss";
+// @import "./components/user_button/greeting_tmp.scss";
+// @import "./components/navbar/navbar.scss";

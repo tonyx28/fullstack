@@ -57,8 +57,7 @@ class SessionForm extends React.Component {
 		this.props.clearErrors();
   }
 	renderErrors() {
-
-		if(this.props.errors){
+		if(this.props.errors !== []){
 			return(
 				<ul>
 					{this.props.errors.map((error, i) => (
@@ -68,20 +67,30 @@ class SessionForm extends React.Component {
 					))}
 				</ul>
 			)
-		} else {
-			<div></div>
-		};
+		} else {}
 	}
 
+	formButton(){
+		if (this.state.formType === 'login'){
+			return 'Log in to TripSplit';
+		} else {
+			return 'Sign up for TripSplit';
+		}
+	}
 
 	render() {
+
 		return (
 			<div>
-				<nav className="login-signup">
+				<nav className="login-signup-links">
 					<div className="dropdown">
-		        <button onClick={this.dropDown.bind(this,'login')} className="dropbtn-mint">Log in</button>
+		        <button onClick={this.dropDown.bind(this,'login')} className="dropbtn"
+							id="dropbtn-mint">Log in</button>
+						&nbsp; or &nbsp;
+						<button onClick={this.dropDown.bind(this,'signup')} className="dropbtn"
+							id="dropbtn-orange">Sign up</button>
 		          <div id="myDropdown" className="dropdown-content">
-								<form className="login-form" onSubmit={this.handleSubmit}>
+								<form className="login-form">
 									<div className="render-errors">
 										{this.renderErrors()}
 									</div>
@@ -100,44 +109,13 @@ class SessionForm extends React.Component {
 													 placeholder="Password"
 													 className="login-input" />
 										<br/>
-										<input type="submit" value="Submit" />
+										<button className="click-btn" id="submit-btn" onClick={this.handleSubmit}>{this.formButton()}</button>
 										<br/>
-										<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
+										<button className="click-btn" id="demo-btn" onClick={this.handleDemo}>Demo</button>
 									</div>
 								</form>
 		          </div>
 		      </div>
-					&nbsp; &nbsp;
-					<div className="dropdown">
-						<button onClick={this.dropDown.bind(this,'signup')} className="dropbtn-orange">Sign up</button>
-							<div id="myDropdown" className="dropdown-content">
-								<form className="login-form" onSubmit={this.handleSubmit}>
-									<div className="render-errors">
-										{this.renderErrors()}
-									</div>
-									<div className="login-contents">
-										<br/>
-										<label>Username:
-											<input type="text"
-														 value={this.state.username}
-														 onChange={this.update("username")}
-														 className="login-input" />
-										</label>
-										<br/>
-										<label>Password:
-											<input type="password"
-														 value={this.state.password}
-														 onChange={this.update("password")}
-														 className="login-input" />
-										</label>
-										<br/>
-										<input type="submit" value="Sign up for TripSplit" />
-										<br/>
-										<button className="demo-btn" onClick={this.handleDemo}>Demo</button>
-									</div>
-								</form>
-							</div>
-					</div>
 				</nav>
 			</div>
 		);

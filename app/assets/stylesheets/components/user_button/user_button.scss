@@ -1,0 +1,58 @@
+.dropbtn {
+  color: white;
+  padding: 4px 10px 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  border-radius: 5px;
+
+}
+
+#dropbtn-user {
+  border-width: 0;
+  text-shadow: 0 -1px 0 #318970;
+  margin-right: 15px;
+  padding-bottom: 11px;
+}
+
+#logout-btn {
+
+}
+/* The container <div> - needed to position the dropdown content */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.user-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 90px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    align-items: flex-end;
+    border-radius: 5px;
+    top: 100%;
+    left: auto;
+    right: 0;
+}
+
+/* Links inside the dropdown */
+.user-dropdown-content a {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+// .dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
