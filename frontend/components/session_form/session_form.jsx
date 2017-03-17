@@ -57,15 +57,18 @@ class SessionForm extends React.Component {
 		this.props.clearErrors();
   }
 	renderErrors() {
-		if(this.props.errors !== []){
+
+		if(this.props.errors[0] !== undefined){
 			return(
-				<ul>
-					{this.props.errors.map((error, i) => (
-						<li key={`error-${i}`}>
-							{error}
-						</li>
-					))}
-				</ul>
+				<div className="render-errors">
+					<ul>
+						{this.props.errors.map((error, i) => (
+							<li key={`error-${i}`}>
+								{error}
+							</li>
+						))}
+					</ul>
+				</div>
 			)
 		} else {}
 	}
@@ -91,26 +94,19 @@ class SessionForm extends React.Component {
 							id="dropbtn-orange">Sign up</button>
 		          <div id="myDropdown" className="dropdown-content">
 								<form className="login-form">
-									<div className="render-errors">
 										{this.renderErrors()}
-									</div>
-									<br/>
 									<div className="login-contents">
-										<br/>
 										<input type="text"
 													 value={this.state.username}
 													 onChange={this.update("username")}
-													 placeholder="Username"
+													 placeholder=" Username"
 													 className="login-input" />
-										<br/>
 										<input type="password"
 													 value={this.state.password}
 													 onChange={this.update("password")}
-													 placeholder="Password"
+													 placeholder=" Password"
 													 className="login-input" />
-										<br/>
 										<button className="click-btn" id="submit-btn" onClick={this.handleSubmit}>{this.formButton()}</button>
-										<br/>
 										<button className="click-btn" id="demo-btn" onClick={this.handleDemo}>Demo</button>
 									</div>
 								</form>

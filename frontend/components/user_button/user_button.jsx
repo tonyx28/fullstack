@@ -22,9 +22,12 @@ class UserButton extends React.Component {
     return(
       <div className="user-dropdown">
         <button onClick={this.dropDown} className="dropbtn"
-          id="dropbtn-user">{this.props.currentUser.username}</button>
+          id="dropbtn-user">
+          <i className="material-icons" id="account-circle">account_circle</i>
+          {this.props.currentUser.username}
+          <i id="caret-down" className="fa fa-caret-down"></i></button>
         <div id="myDropdown" className="user-dropdown-content">
-          <a href="" className="dropdown-item" id="settings-btn" >Settings</a>
+          <a href="" className="dropdown-item" id="settings-btn">Settings</a>
           <a href="" className="dropdown-item" id="logout-btn" onClick={this.logout}>Log out</a>
         </div>
       </div>
