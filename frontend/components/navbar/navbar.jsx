@@ -7,7 +7,6 @@ import SessionFormContainer from '../session_form/session_form_container';
 class Navbar extends React.Component {
 
   render() {
-    // debugger;
     return(
       <div className='navbar'>
         <h1 className="site-name">TripSplit</h1>
