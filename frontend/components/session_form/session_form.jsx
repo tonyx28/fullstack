@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import Modal from 'react-modal';
-import ModalStyle from './modal_style';
+// import Modal from 'react-modal';
+// import ModalStyle from './modal_style';
 
 
 class SessionForm extends React.Component {
@@ -115,6 +115,7 @@ class SessionForm extends React.Component {
 			</div>
 		);
 	}
+
 }
 
 export default withRouter(SessionForm);

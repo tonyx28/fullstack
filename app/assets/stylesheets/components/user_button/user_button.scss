@@ -25,12 +25,9 @@
 /* The container <div> - needed to position the dropdown content */
 .user-dropdown {
     display: flex;
-    // flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    // display: inline-block;
-    // margin-right: 30px;
     width: 100px;
 
     height: 100%;
@@ -48,13 +45,11 @@
 /* Dropdown Content (Hidden by Default) */
 .user-dropdown-content {
     display: none;
-    // flex-direction: column;
     position: absolute;
     background-color: #f9f9f9;
     width: 90px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 9999;
-    // align-items: flex-end;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
     top: 100%;
