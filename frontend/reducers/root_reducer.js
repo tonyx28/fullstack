@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
 import SessionReducer from './session_reducer';
 import ErrorReducer from './error_reducer';
-
+import FriendReducer from './friend_reducer';
+import BillReducer from './bill_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
-  errors: ErrorReducer
+  errors: ErrorReducer,
+  friends: FriendReducer,
+  bills: BillReducer
 });
 
 export default rootReducer;

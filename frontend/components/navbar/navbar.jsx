@@ -8,9 +8,11 @@ class Navbar extends React.Component {
 
   render() {
     return(
-      <div className='navbar'>
-        <h1 className="site-name">TripSplit</h1>
-        {this.props.currentUser ? <UserButtonContainer /> : <SessionFormContainer />}
+      <div className="navbar">
+        <div className='navbar-inner'>
+          <h1 className="site-name">TripSplit</h1>
+          {this.props.currentUser ? <UserButtonContainer /> : <SessionFormContainer />}
+        </div>
       </div>
     )
   }

@@ -17,18 +17,22 @@
   bills: {
     1: {
       description: "Tacos",
+      details: nil,
       amount: 20.50,
       creator_id: 1,
       paid_by_id: 1,
-      friend_ids: {
+      friend: [
         1: {
           id: 2,
-          name: "jon"
+          name: "jon",  
+          owed_amt: 10.25,
+          paid_amt: 0
         }
-      },
+      ],
+      payments: [
+
+      ]
       settled: false,
-      owed_amt: 10.25,
-      owe_amt: 0
 
       }
     }

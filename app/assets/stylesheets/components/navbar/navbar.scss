@@ -1,22 +1,40 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
   background-color: #5bc5a7;
-
+  z-index: 9999;
   color: white;
   top: 0;
   left: 0;
   height: 40px;
   position: fixed;
+  min-width: 960px;
   width: 100%;
   border: 1px solid #ccc;
 
-  .site-name {
-    font-size: 25px;
-    margin: 5px;
-    margin-left: 15px;
-    text-shadow: 0 -1px 0 #318970;
-  }
+
+}
+
+.navbar-inner {
+  display: flex;
+  min-width: 960px;
+  max-width: 980px;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-name {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 25px;
+  // margin: 5px;
+  // margin-left: 15px;
+  // height: 100%;
+  width: 180px;
+  align-self: center;
+  // text-align: center;
+  text-shadow: 0 -1px 0 #318970;
 }

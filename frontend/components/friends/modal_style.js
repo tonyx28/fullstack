@@ -16,7 +16,9 @@ const ModalStyle = {
     marginRight           : 'auto',
     transform             : 'translate(-50%, -50%)',
     borderRadius          : '20px'
+
   }
+
 };
 
 export default ModalStyle;

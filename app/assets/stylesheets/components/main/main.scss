@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  // flex-direction: row;
+  position: absolute;
+  top: 40px;
+  height: 100%;
+  min-width: 960px;
+  width: 100%;
+  // align-items: center;
+  justify-content: center;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  min-width: 960px;
+  max-width: 980px;
+}

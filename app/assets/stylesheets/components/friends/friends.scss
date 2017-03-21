@@ -1,0 +1,117 @@
+.friends-container {
+  // display: flex;
+  // height: 100%;
+  // border: 1px solid #ccc;
+  // border-radius: 5px;
+  color: #999;
+  // position: relative;
+  // top: 30px;
+}
+
+.friends-title {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  padding: 5px 5px 0px 3px;
+  font-size: 13px;
+  background-color: #f6f6f6;
+  height: 18px;
+  color: #ccc;
+  border-top-color: #e9e9e9;
+  border-bottom-color: #e6e6e6;
+  // width: 165px;
+}
+
+.friends-title:hover {
+  background-color: #e6e6e6;
+  color: #999;
+}
+.add-btn:hover {
+  cursor: pointer;
+}
+.friends-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // padding: 5px;
+  font-size: 14px;
+  line-height: 18px;
+  // height: 100%;
+}
+
+.friend {
+  // display: block;
+  // width: 165px;
+  font-family: sans-serif;
+  height: 20px;
+  border-left: 6px solid #fff;
+  font-size: 14px;
+  padding: 3px 8px 2px 8px;
+}
+
+.fa::after {
+  content: " ";
+  margin-left: 5px;
+}
+.friend:hover {
+  background-color: #f2f2f2;
+  // cursor: pointer;
+  color: #4d4d4d;
+
+}
+
+.friend:focus {
+  border-left: 6px solid #5bc5a7;
+  color: #5bc5a7;
+  font-weight: bold;
+}
+.friend-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.friend-input {
+  border: 1px solid #ccc;
+  margin: 2px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.friend-input:focus {
+  border: 1px solid black;
+}
+
+.add {
+  background-color: #ff652f;
+  text-shadow: 0 -1px 0 #c83400;
+  padding: 4px 10px 4px 10px;
+  border: 1px solid #ccc;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 16px;
+}
+
+.add-btn:hover {
+  color: #5bc5a7;
+  font-weight: bold;
+}
+
+.add-label {
+  font-size: 20px;
+  color: #333333;
+}
+
+.ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}

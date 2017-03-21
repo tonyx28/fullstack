@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: bills
+#
+#  id          :integer          not null, primary key
+#  description :string           not null
+#  cost        :float            not null
+#  date        :date
+#  creator_id  :integer
+#  payer_id    :integer          not null
+#  friend_id   :integer          not null
+#  settled     :boolean          default("false")
+#  owed_amt    :float
+#  paid_amt    :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

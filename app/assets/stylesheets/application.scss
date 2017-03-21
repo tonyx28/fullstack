@@ -14,10 +14,15 @@
  */
 //
 @import "./reset.scss";
+
 @import "./components/navbar/navbar.scss";
 @import "./components/user_button/user_button.scss";
 @import "./components/session/session_form.scss";
 @import "./components/welcome/welcome.scss";
-// @import "./components/session/session_form_tmp.scss";
-// @import "./components/user_button/greeting_tmp.scss";
-// @import "./components/navbar/navbar.scss";
+@import "./components/main/main.scss";
+@import "./components/sidebar/left_sidebar.scss";
+@import "./components/center/center";
+@import "./components/center/header";
+@import "./components/sidebar/right_sidebar.scss";
+@import "./components/friends/friends.scss";
+@import "./components/center/dashboard_button.scss";

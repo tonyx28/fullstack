@@ -38,7 +38,7 @@ export const updateFriend = friend => dispatch => (
 );
 
 export const deleteFriend = friend => dispatch => (
-  FriendApiUtil.deleteFriend(friend).then(friend => dispatch(removeFriend)))
+  FriendApiUtil.deleteFriend(friend).then(friend => dispatch(removeFriend(friend)))
 );
 
 window.createFriend = createFriend;

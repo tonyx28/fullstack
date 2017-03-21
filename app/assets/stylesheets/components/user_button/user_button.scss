@@ -16,6 +16,15 @@
   padding: 0 2px 0 2px;
 }
 
+#dropbtn-user::after {
+  content: '\25BE';
+  margin-left: 3px;
+}
+
+.material-icons::after {
+  content: " ";
+  margin-left: 3px;
+}
 .dropdown-item:hover {
   color: white;
   background-color: #4bbc9c;
@@ -28,8 +37,7 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    width: 100px;
-
+    width: 180px;
     height: 100%;
 }
 
@@ -55,7 +63,7 @@
     top: 100%;
     left: auto;
     right: 0;
-    margin-right: 30px;
+    margin-right: 90px;
 }
 
 /* Links inside the dropdown */

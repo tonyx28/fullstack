@@ -1,0 +1,29 @@
+.dashbtn {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+  border-radius: 5px;
+  padding: 9px 14px;
+}
+
+
+#dashbtn-mint {
+  background-color: #5bc5a7;
+  text-shadow: 0 -1px 0 #318970;
+  margin-left: 7px;
+}
+
+#dashbtn-mint:hover {
+  background-color: #54b79b;
+}
+#dashbtn-orange {
+  background-color: #ff652f;
+  text-shadow: 0 -1px 0 #c83400;
+}
+
+#dashbtn-orange:hover {
+  background-color: #ec4d13;
+}
