@@ -1,4 +1,4 @@
-import { RECEIVE_BILLS, RECEIVE_BILL, REMOVE_BILL } from '../actions/friend_actions';
+import { RECEIVE_BILLS, RECEIVE_BILL, REMOVE_BILL } from '../actions/bill_actions';
 import merge from 'lodash/merge';
 
 const billReducer = (state = {}, action) => {
@@ -7,12 +7,13 @@ const billReducer = (state = {}, action) => {
 
   switch(action.type){
     case RECEIVE_BILLS:
-      nextState = merge({}, state);
-      action.bills.forEach((bill) => nextState[bill.id] = bill);
-      return nextState;
+      // nextState = merge({}, state);
+      // action.bills.forEach((bill) => nextState[bill.id] = bill);
+      // console.log(nextState);
+      return action.bills;
     case RECEIVE_BILL:
       const newBill = {[action.bill.id]:action.bill};
-      return merge({}, state, newBill);
+      return merge([], state, newBill);
     case REMOVE_BILL:
       nextState = merge({}, state);
       delete nextState[action.bill.id];

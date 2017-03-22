@@ -8,7 +8,7 @@ export const fetchBills = () => (
 export const createBill = bill => (
   $.ajax({
     method: 'POST',
-    url: '/api/bills'
+    url: '/api/bills',
     data: { bill }
   })
 )
@@ -16,7 +16,7 @@ export const createBill = bill => (
 export const updateBill = bill => (
   $.ajax({
     method: 'PATCH',
-    url: `api/bills/${bill.id}`
+    url: `api/bills/${bill.id}`,
     data: { bill }
   })
 )

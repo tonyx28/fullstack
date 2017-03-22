@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { fetchBills, createBill, updateBill, deleteBill } from '../../actions/bill_actions';
 import Bills from './Bills';
 
-const mapStateToProps = ( { bills, session } ) => {
-  return { bills, currentUser: session.currentUser };
+const mapStateToProps = ( { bills } ) => {
+  return { bills };
 };
 
 const mapDispatchToProps = dispatch => ({

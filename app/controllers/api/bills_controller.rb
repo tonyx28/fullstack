@@ -1,6 +1,6 @@
 class Api::BillsController < ApplicationController
   def index
-    render json: Bill.all.where(user_id: current_user.id)
+    render json: Bill.all.where(creator_id: current_user.id)
   end
 
   def show
@@ -33,6 +33,6 @@ class Api::BillsController < ApplicationController
 
   private
   def bill_params
-    params.require(:bill).permit(:description, :cost, :date, :payer_id, :creator_id)
+    params.require(:bill).permit(:description, :cost, :date, :payer_id, :creator_id, :friend_id)
   end
 end

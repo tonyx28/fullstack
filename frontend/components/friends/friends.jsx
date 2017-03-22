@@ -11,7 +11,6 @@ class Friends extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
   componentDidMount() {
     this.props.fetchFriends();
@@ -70,13 +69,13 @@ class Friends extends React.Component {
           <form className="friend-form" onSubmit={this.handleSubmit}>
             <input type="text"
                    value={this.props.name}
-                   placeholder=" Friend's name"
+                   placeholder="Friend's name"
                    onChange={this.update("name")}
                    className="friend-input" />
             <br/>
             <input type="email"
                    value={this.props.email}
-                   placeholder=" Friend's email (optional)"
+                   placeholder="Friend's email (optional)"
                    onChange={this.update("email")}
                    className="friend-input" />
             <br />
