@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: "Jack", password: "password")
-User.create(username: "James", password: "password")
 User.create(username: "Julie", password: "password")
+User.create(username: "James", password: "password")
 User.create(username: "Jon", password: "password")
 User.create(username: "Jake", password: "password")
 
@@ -16,6 +16,7 @@ Friend.create(name: "Jason", user_id: 1)
 Friend.create(name: "Jacky", user_id: 1)
 Friend.create(name: "Vincent", user_id: 1)
 Friend.create(name: "Vincent", user_id: 2)
+Friend.create(name: "Jarvis", user_id: 2)
 Friend.create(name: "Vinson", user_id: 1)
 Friend.create(name: "Mike", user_id: 3)
 Friend.create(name: "Justin", user_id: 4)
@@ -24,5 +25,11 @@ Friend.create(name: "Stacy", user_id: 5)
 Friend.create(name: "Michael", user_id: 5)
 
 
-Bill.create(description: "Tacos", cost: 12.55, friend_id: 1, payer_id: 1, creator_id: 1)
-Bill.create(description: "Pizza", cost: 22.00, friend_id: 2, payer_id: 5, creator_id: 2)
+Bill.create(description: "Tacos", cost: 12.56, friend_id: 1, user_id: 1, owed_amt: 6.28)
+Bill.create(description: "Pizza", cost: 22.56, friend_id: 2, user_id: 1, owed_amt: 11.28)
+Bill.create(description: "Hot Dogs", cost: 15.00, friend_id: 3, user_id: 1, owed_amt: 7.50)
+Bill.create(description: "Bento Box", cost: 13.00, friend_id: 2, user_id: 1, owed_amt: 6.50)
+
+Bill.create(description: "Pizza", cost: 22.00, friend_id: 4, user_id: 2, owed_amt: 11.00)
+Bill.create(description: "Wings", cost: 35.00, friend_id: 4, user_id: 2, owed_amt: 11.00)
+Bill.create(description: "Steak", cost: 55.00, friend_id: 5, user_id: 2, owed_amt: 27.50)
