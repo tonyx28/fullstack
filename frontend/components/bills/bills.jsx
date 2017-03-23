@@ -18,8 +18,13 @@ class Bills extends React.Component {
     return (
 
       e => {
-        debugger;
-        document.getElementById(showId).toggle()
+        // debugger;
+        let details = document.getElementById(showId)
+        if (details.style.display === 'none'){
+          details.style.display = 'block';
+        } else {
+          details.style.display = 'none';
+        }
       }
     )
   }

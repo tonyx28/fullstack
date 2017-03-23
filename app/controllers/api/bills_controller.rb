@@ -9,8 +9,19 @@ class Api::BillsController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
-    @bill.owed_amt = @bill.cost / 2
+    owed_amt = @bill.cost / 2
+    @bill.owed_amt = owed_amt
+
+    friend = Friend.find_by(id: @bill.friend_id)
+
+    # if (@bill.paid_by_friend)
+    #   friend.paid_amt += owed_amt
+    # else
+    #   friend.owed_amt += owed_amt
+    # end
+
     if @bill.save
+      # friend.save
       render json: @bill
     else
       render json: @bill.errors.full_messages, status: 422

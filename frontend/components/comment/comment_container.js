@@ -3,8 +3,8 @@ import { fetchComments, createComment, deleteComment } from '../../actions/comme
 import Comment from './comment'
 
 
-const mapStateToProps ({ session, comment }, {bill_Id}) => {
-  return ({ currentUser: session.currentUser, comment, ownProps })
+const mapStateToProps ({ session, comments }, {bill_Id}) => {
+  return ({ currentUser: session.currentUser, comments, bill_Id })
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -12,3 +12,6 @@ const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(fetchComment(comment)),
   deleteComment: comment => dispatch(deleteComment(comment))
 })
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Comment);
