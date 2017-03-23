@@ -1,6 +1,13 @@
 .bill {
   text-rendering: optimizeLegibility;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.bill-small {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -9,9 +16,10 @@
   border-bottom: 1px solid #eee;
   padding: 10px;
   font-family: 'Latos', sans-serif;
+
 }
 
-.bill:hover {
+.bill-click:hover {
   cursor: pointer;
   background-color: #f2f2f2;
 }
@@ -84,4 +92,71 @@
     font-size: 16px;
     font-weight: bold;
   }
+}
+
+#positive {
+  color: #5bc5a7;
+}
+
+#negative {
+  color: #ff652f;
+}
+
+.bill-details {
+  box-shadow: inset 0 5px 7px -5px rgba(0,0,0,0.25), inset 0 -3px 7px -5px rgba(0,0,0,0.25);
+  border-bottom: 1px solid #eee;
+  display: table-row-group;
+  width: 530px;
+  padding: 15px;
+}
+
+.bill-table-top {
+  display: flex;
+  flex-direction: row;
+
+}
+.bill-edit {
+  padding-bottom: 13px;
+}
+.bill-table-bottom {
+  display: flex;
+  flex-direction: row;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.left-side {
+  width: 265px;
+  vertical-align: top;
+  padding-right: 15px;
+  padding-bottom: 3px;
+  .payer {
+    display: flex;
+
+  }
+  .debtor {
+    display: flex;
+  }
+}
+
+.text {
+  padding: 10px 0 0;
+}
+hr {
+  margin: 0;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+.bill-icon {
+  width: 35px;
+  height: 60px;
 }

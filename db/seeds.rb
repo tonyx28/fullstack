@@ -33,3 +33,5 @@ Bill.create(description: "Bento Box", cost: 13.00, friend_id: 2, user_id: 1, owe
 Bill.create(description: "Pizza", cost: 22.00, friend_id: 4, user_id: 2, owed_amt: 11.00, date: Date.new(2017,2,19))
 Bill.create(description: "Wings", cost: 35.00, friend_id: 4, user_id: 2, owed_amt: 11.00, date: Date.new(2016,12,21))
 Bill.create(description: "Steak", cost: 55.00, friend_id: 5, user_id: 2, owed_amt: 27.50, date: Date.new(2017,3,15))
+
+Bill.create(description: "Steak", cost: 55.00, friend_id: 7, user_id: 3, owed_amt: 27.50, date: Date.new(2017,3,15))

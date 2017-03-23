@@ -5,14 +5,23 @@ class Bills extends React.Component {
   constructor(props){
     super(props);
 
+    this.showDetails = this.showDetails.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchBills();
   }
 
-  disableDefault(e){
-    e.preventDefault();
+  showDetails(showId){
+    // e.preventDefault();
+
+    return (
+
+      e => {
+        debugger;
+        document.getElementById(showId).toggle()
+      }
+    )
   }
 
   render() {
@@ -27,46 +36,82 @@ class Bills extends React.Component {
         let d = new Date(bill.date);
         let month = d.getMonth();
         let day = d.getDate();
-        let paid_by, lent_to;
-        let friend;
+        let paidBy, lentTo, friend, idName, showId;
+        showId = "show-" + bill.id;
         if (friends[0] !== undefined){
           friend = friends.filter((friend) => (friend.id === bill.friend_id))
           if (bill.paid_by_friend === false){
-            paid_by = "you";
-            lent_to = friend[0].name;
+            paidBy = "you";
+            lentTo = friend[0].name;
+            idName = "positive"
           } else {
-            paid_by = friend[0].name;
-            lent_to = "you";
+            paidBy = friend[0].name;
+            lentTo = "you";
+            idName = "negative"
           }
         }
 
-
-
         return (
-          <div className="bill" key={bill.id} onClick={this.disableDefault}>
-
-            <div className="bill-header">
-              <div className="bill-date" >
-                <div className="month">
-                  {monthNames[month]}
+          <div className="bill" key={bill.id} >
+            <div className="bill-click" onClick={this.showDetails(showId)} >
+              <div className="bill-small">
+                <div className="bill-header">
+                  <div className="bill-date" >
+                    <div className="month">
+                      {monthNames[month]}
+                    </div>
+                    <div className="day">
+                      {day}
+                    </div>
+                  </div>
+                  <div className="category-icon">
+                    <img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png"/>
+                  </div>
+                  <div className="bill-desc" value={showId} >{bill.description}</div>
                 </div>
-                <div className="day">
-                  {day}
+
+                <div className="paid">
+                  <div className="paid-by">{paidBy} paid</div>
+                  <div className="bill-cost">${bill.cost.toFixed(2)}</div>
+                </div>
+                <div className="lent">
+                  <div className="lent-to">{lentTo} owes</div>
+                  <div id={idName} className="bill-amt-owed" >${bill.owed_amt.toFixed(2)}</div>
                 </div>
               </div>
-              <div className="category-icon">
-                <img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png"/>
-              </div>
-              <div className="bill-desc" >{bill.description}</div>
             </div>
 
-            <div className="paid">
-              <div className="paid-by">{paid_by} paid</div>
-              <div className="bill-cost">${bill.cost.toFixed(2)}</div>
-            </div>
-            <div className="lent">
-              <div className="lent-to">{lent_to} owes</div>
-              <div className="bill-amt-owed">${bill.owed_amt.toFixed(2)}</div>
+            <div className="bill-details" id={showId} style={{display:"none"}}>
+              <div className="bill-table">
+                <div>
+                  <div className="bill-table-top">
+                    <img className="bill-icon" src="https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png"/>
+                    <div>
+                      <div className="bill-dets">{bill.description}</div>
+                      <div className="bill-cost">${bill.cost.toFixed(2)}</div>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div className="bill-table-bottom">
+                    <div className="left-side">
+                      <div className="payer">
+                        <img className="avatar" src="https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/100-4c516cdaad9fa42b890727b03e49634a199eaba880df708835105dfa42fac74b.png" />
+                        <div className="text">{this.props.currentUser.username} paid ${bill.cost} and owes ${bill.owed_amt}</div>
+                      </div>
+                      <div className="debtor">
+                        <img className="avatar" src="https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/100-4c516cdaad9fa42b890727b03e49634a199eaba880df708835105dfa42fac74b.png" />
+                        <div className="text">{lentTo} owes ${bill.owed_amt}</div>
+                      </div>
+                    </div>
+
+                    <div className="comments">
+                      Comments go here:
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )

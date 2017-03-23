@@ -34,11 +34,13 @@
 /* The container <div> - needed to position the dropdown content */
 .user-dropdown {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     position: relative;
     width: 180px;
     height: 100%;
+    // padding-right: 10px;
+    margin-right: 10px;
 }
 
 #dropbtn-user:hover {
@@ -61,9 +63,9 @@
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
     top: 100%;
-    left: auto;
-    right: 0;
-    margin-right: 90px;
+    // left: auto;
+    // right: 0;
+    // margin-right: 90px;
 }
 
 /* Links inside the dropdown */

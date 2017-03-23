@@ -14,12 +14,12 @@ export const receiveBills = bills => ({
 export const receiveBill = bill => ({
   type: RECEIVE_BILL,
   bill
-})
+});
 
 export const removeBill = bill => ({
   type: REMOVE_BILL,
   bill
-})
+});
 
 export const fetchBills = () => dispatch => (
   BillApiUtil.fetchBills().then(bills => dispatch(receiveBills(bills)))

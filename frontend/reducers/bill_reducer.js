@@ -7,9 +7,6 @@ const billReducer = (state = {}, action) => {
 
   switch(action.type){
     case RECEIVE_BILLS:
-      // nextState = merge({}, state);
-      // action.bills.forEach((bill) => nextState[bill.id] = bill);
-      // console.log(nextState);
       return action.bills;
     case RECEIVE_BILL:
       const newBill = {[action.bill.id]:action.bill};
