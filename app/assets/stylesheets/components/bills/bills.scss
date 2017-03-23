@@ -1,4 +1,5 @@
 .bill {
+  text-rendering: optimizeLegibility;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -52,7 +53,6 @@
 }
 
 .paid {
-  // font-family: 'Latos', sans-serif;
   width: 115px;
   display: flex;
   flex-direction: column;

@@ -43,7 +43,7 @@ class Friends extends React.Component {
   }
 
   render() {
-    const { friends, createFriend, fetchFriends, deleteFriend } = this.props
+    const { friends, deleteFriend } = this.props
 
     let friendsList;
     if (friends[0] !== undefined) {

@@ -1,12 +1,15 @@
 import React from 'react';
+import AddBillContainer from './add_bill_container';
 
 class DashboardButton extends React.Component {
+
   render() {
     return(
       <div className="dash-btns">
-        <button className="dashbtn" id="dashbtn-orange">Add a bill</button>
+        <AddBillContainer />
         <button className="dashbtn" id="dashbtn-mint">Settle up</button>
       </div>
+
     )
   }
 }

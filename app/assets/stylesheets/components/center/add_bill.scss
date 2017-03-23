@@ -1,0 +1,24 @@
+.bill-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-input {
+  border: 1px solid #ccc;
+  // margin: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bill-label {
+  display: flex;
+  flex-direction: row;
+}

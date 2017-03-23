@@ -31,15 +31,16 @@ class Bills extends React.Component {
         let friend;
         if (friends[0] !== undefined){
           friend = friends.filter((friend) => (friend.id === bill.friend_id))
+          if (bill.paid_by_friend === false){
+            paid_by = "you";
+            lent_to = friend[0].name;
+          } else {
+            paid_by = friend[0].name;
+            lent_to = "you";
+          }
         }
 
-        if (bill.paid_by_friend === false){
-          paid_by = "you";
-          lent_to = friend[0].name;
-        } else {
-          paid_by = friend[0].name;
-          lent_to = "you";
-        }
+
 
         return (
           <div className="bill" key={bill.id} onClick={this.disableDefault}>
