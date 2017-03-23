@@ -25,11 +25,11 @@ Friend.create(name: "Stacy", user_id: 5)
 Friend.create(name: "Michael", user_id: 5)
 
 
-Bill.create(description: "Tacos", cost: 12.56, friend_id: 1, user_id: 1, owed_amt: 6.28)
-Bill.create(description: "Pizza", cost: 22.56, friend_id: 2, user_id: 1, owed_amt: 11.28)
-Bill.create(description: "Hot Dogs", cost: 15.00, friend_id: 3, user_id: 1, owed_amt: 7.50)
-Bill.create(description: "Bento Box", cost: 13.00, friend_id: 2, user_id: 1, owed_amt: 6.50)
+Bill.create(description: "Tacos", cost: 12.56, friend_id: 1, user_id: 1, owed_amt: 6.28, date: Date.new(2017,3,02))
+Bill.create(description: "Pizza", cost: 22.56, friend_id: 2, user_id: 1, owed_amt: 11.28, date: Date.new(2017,3,11))
+Bill.create(description: "Hot Dogs", cost: 15.00, friend_id: 3, user_id: 1, owed_amt: 7.50, date: Date.new(2017,3,12))
+Bill.create(description: "Bento Box", cost: 13.00, friend_id: 2, user_id: 1, owed_amt: 6.50, date: Date.new(2017,3,18))
 
-Bill.create(description: "Pizza", cost: 22.00, friend_id: 4, user_id: 2, owed_amt: 11.00)
-Bill.create(description: "Wings", cost: 35.00, friend_id: 4, user_id: 2, owed_amt: 11.00)
-Bill.create(description: "Steak", cost: 55.00, friend_id: 5, user_id: 2, owed_amt: 27.50)
+Bill.create(description: "Pizza", cost: 22.00, friend_id: 4, user_id: 2, owed_amt: 11.00, date: Date.new(2017,2,19))
+Bill.create(description: "Wings", cost: 35.00, friend_id: 4, user_id: 2, owed_amt: 11.00, date: Date.new(2016,12,21))
+Bill.create(description: "Steak", cost: 55.00, friend_id: 5, user_id: 2, owed_amt: 27.50, date: Date.new(2017,3,15))

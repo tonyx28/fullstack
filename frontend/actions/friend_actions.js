@@ -41,6 +41,6 @@ export const deleteFriend = friend => dispatch => (
   FriendApiUtil.deleteFriend(friend).then(friend => dispatch(removeFriend(friend)))
 );
 
-window.createFriend = createFriend;
-window.fetchFriends = fetchFriends;
-window.fetchFriend = fetchFriend;
+// window.createFriend = createFriend;
+// window.fetchFriends = fetchFriends;
+// window.fetchFriend = fetchFriend;

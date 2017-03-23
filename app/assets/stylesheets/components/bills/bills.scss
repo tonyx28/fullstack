@@ -1,5 +1,87 @@
 .bill {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  width: 540px;
+  height: 40px;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  font-family: 'Latos', sans-serif;
+}
+
+.bill:hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+.bills-container {
+  // padding: 10px;
+}
+
+.bill-header {
+  width: 305px;
+  display: flex;
+  flex-direction: row;
+}
+.bill-desc {
+  width: 200px;
+  font-size: 20px;
+  display: flex;
+  align-self: center;
+  padding-left: 5px;
+}
+
+.bill-date {
+  width: 35px;
+  height: 35px;
+  color: #999;
+  .month {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .day {
+    text-align: center;
+    font-size: 23px;
+    margin-top: -3px;
+  }
+}
+
+.category-icon {
+  width: 21px;
+}
+
+.paid {
+  // font-family: 'Latos', sans-serif;
+  width: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 5px;
+
+  .paid-by {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .bill-cost {
+    font-family: 'Latos', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.lent {
+  width: 120px;
+  padding-left: 5px;
+
+  .lent-to {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .bill-amt-owed {
+    font-family: 'Latos', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
