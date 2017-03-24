@@ -10,7 +10,6 @@ class History extends React.Component {
 
   componentWillMount(){
     fetchBills(null,true).then(obj => history = JSON.parse(obj).responseText);
-    debugger;
   }
 
   render() {

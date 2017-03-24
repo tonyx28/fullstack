@@ -1,7 +1,0 @@
-console.log(`I'm in App. children is ${children}`);
-if (this) {
-  (this.props === undefined) ? console.log("props is undefined") : console.log(`props is ${this.props}`);
-  (this.state === undefined) ? console.log("state is undefined") : console.log(`props is ${this.state}`);
-} else {
-  console.log("this is undefined");
-}

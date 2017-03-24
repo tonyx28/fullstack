@@ -36,7 +36,6 @@ class SettleBill extends React.Component {
   }
 
   updateAll(bill_id){
-    debugger;
     let { bills } = this.props;
 
   }

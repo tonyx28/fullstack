@@ -43,7 +43,6 @@ class Bills extends React.Component {
       e.preventDefault();
       let { body, username, date } = this.state;
       let comment = { body, username, date, bill_id: bill_id }
-      debugger;
       this.props.createComment(comment);
       this.setState({ body: ""});
     }
