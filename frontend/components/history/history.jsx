@@ -18,7 +18,6 @@ class History extends React.Component {
 
     return(
       <div className="transaction-history">
-          this is for transactions
 
       </div>
     )

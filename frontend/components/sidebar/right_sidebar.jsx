@@ -7,7 +7,7 @@ const RightSidebar = () => {
 
   return (
     <div className="right-sidebar">
-      Transaction History
+
     </div>
   )
 }

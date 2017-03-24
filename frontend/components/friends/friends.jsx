@@ -12,7 +12,7 @@ class Friends extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.deleteThisFriend = this.deleteThisFriend.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.filterByFriend = this.filterByFriend.bind(this);
   }
   componentDidMount() {
@@ -41,7 +41,7 @@ class Friends extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  deleteThisFriend(friend){
+  handleDelete(friend){
     return e => {
       e.preventDefault();
       this.props.deleteFriend(friend);

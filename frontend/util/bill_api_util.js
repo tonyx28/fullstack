@@ -1,8 +1,8 @@
-export const fetchBills = (friend_id, limit=false) => (
+export const fetchBills = (friend_id) => (
   $.ajax({
     method: 'GET',
     url: '/api/bills',
-    data: { friend_id, limit }
+    data: { friend_id }
   })
 )
 
