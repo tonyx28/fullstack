@@ -4,37 +4,20 @@ import CommentContainer from './comment_container';
 class Comment extends React.Component{
   constructor(props){
     super(props)
-    this.state = { body: "",
-                   username: this.props.currentUser.username,
-                   date: new Date(),
-                   bill_id: this.props.bill_id}
-    this.handleSubmit =this.handleSubmit.bind(this);
-  }
 
-  update(field) {
-		return e => this.setState({
-			[field]: e.currentTarget.value
-		});
-	}
-
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.createComment(this.state);
-    this.setState({ body: ""});
   }
 
 
+// comments.filter(obj => obj.bill_id === bill_id)
 
   render(){
-    const { comments, bill_id } = this.props
+    let { comments, bill_id } = this.props
     let commentList;
     let commentsByBillId = [];
 
-    if (comments[0] !== undefined)
-      comments.forEach (comment => {
-        if (comment.bill_id === bill_id){
-          commentsByBillId.push(comment);
-      }});
+    if (comments[0] !== undefined){
+      commentsByBillId = comments.filter(obj => obj.bill_id === bill_id);
+
       commentList = commentsByBillId.map(comment => (
         <li key={comment.id} className="comment-item">
           <div className="comment-header">
@@ -44,7 +27,7 @@ class Comment extends React.Component{
           <div className="comment-body">{comment.body}</div>
         </li>
       ))
-
+    }
     return(
       <div className="comment-list">
         <div className="comment-section-header">
@@ -55,8 +38,6 @@ class Comment extends React.Component{
         <ul>
           {commentList}
         </ul>
-        <textarea className="post-comment-body" placeholder="Add a comment..." onChange={this.update("body")}/>
-        <button className="post-comment-btn" onClick={this.handleSubmit}>Post</button>
       </div>
     )
 

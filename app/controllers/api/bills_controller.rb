@@ -1,10 +1,14 @@
 class Api::BillsController < ApplicationController
   def index
-    if params[:limit] == true
+    puts params[:limit]
+    if params[:limit] == "true"
+      puts "grabbing transaction history"
       render json: Bill.all.where(user_id: current_user.id).limit(10)
     elsif params[:friend_id] == nil
+      puts "all"
       render json: Bill.all.where(user_id: current_user.id)
     else
+      puts "by friend"
       render json: Bill.all.where(user_id: current_user.id).where(friend_id: params[:friend_id])
     end
   end

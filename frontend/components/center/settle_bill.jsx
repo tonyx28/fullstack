@@ -2,20 +2,22 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style';
 
-class AddBill extends React.Component {
+class SettleBill extends React.Component {
   constructor(props){
     super(props);
-    this.state = { description: "", cost: 0, user_id: this.props.currentUser.id, friend_id: null, modalOpen: false };
+
+    this.state = { description: "", cost: 0, user_id: this.props.currentUser.id, bill_id: null, modalOpen: false };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateAll = this.updateAll.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    let { description, cost, user_id, friend_id } = this.state;
-    let bill = {description, cost, user_id, friend_id}
-    this.props.createBill(bill)
+    let { description, cost, user_id, bill_id } = this.state;
+    let bill = {description, cost, user_id, bill_id}
+    this.props.udpateBill(bill)
     this.closeModal()
   }
 
@@ -33,21 +35,24 @@ class AddBill extends React.Component {
     this.setState({ modalOpen: false });
   }
 
+  updateAll(bill_id){
+    debugger;
+    let { bills } = this.props;
 
+  }
   render() {
-    const { friends } = this.props
-    let friendsList;
-    if (friends[0] !== undefined) {
-      friendsList = friends.map(friend => (
-        <option key={friend.id} value={friend.id}>{friend.name}</option>
+    const { bills } = this.props
+    let billsList;
+    if (bills[0] !== undefined) {
+      billsList = bills.map(bill => (
+        <option key={bill.id} value={bill.id}>{bill.description}-{bill.date}</option>
       ))
     }
-
     return (
       <div>
         <div>
-          <button className="dashbtn" id="dashbtn-orange"
-            onClick={this.openModal}>Add a bill</button>
+          <button className="dashbtn" id="dashbtn-mint"
+            onClick={this.openModal}>Settle Up</button>
         </div>
 
         <Modal
@@ -56,17 +61,16 @@ class AddBill extends React.Component {
           onRequestClose={this.closeModal}
           style={ModalStyle}>
           <label className="bill-label">
-            Add a bill</label>
+            Settle a bill</label>
           <br/>
 
           <form className="bill-form" onSubmit={this.handleSubmit}>
-            <select className="bill-input" onChange={this.update("friend_id")}>
-              <option disabled value="" >Select a friend</option>
-              {friendsList}
+            <select className="bill-input" onSelect={this.updateAll("bill_id")}>
+              <option disabled value="" >Select a bill</option>
+              {billsList}
             </select>
-            <br/>
             <input type="text"
-                   value={this.props.description}
+                   value={this.state.description}
                    placeholder="Description"
                    onChange={this.update("description")}
                    className="bill-input" />
@@ -74,7 +78,7 @@ class AddBill extends React.Component {
             <div className="bill-input" >
               <span className="dollar-sign">$</span>
               <input type="number"
-                     value={this.props.cost}
+                     value={this.state.cost}
                      placeholder="0.00"
                      onChange={this.update("cost")}
                      min = "0.01"
@@ -83,19 +87,18 @@ class AddBill extends React.Component {
             </div>
             <br/>
               <input type="date"
-                     value={this.props.date}
+                     value={this.state.date}
                      onChange={this.update("date")}
                      className="bill-input" />
             <br/>
             <div>Paid by you and split equally</div>
             <br/>
-            <input className="add" type="submit" value="Add bill" />
+            <input className="settle" type="submit" value="Settle bill" />
           </form>
         </Modal>
       </div>
     )
-
   }
 }
 
-export default AddBill;
+export default SettleBill;

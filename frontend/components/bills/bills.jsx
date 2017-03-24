@@ -5,6 +5,11 @@ class Bills extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = { body: "",
+                   username: this.props.currentUser.username,
+                   date: new Date(),
+                   bill_id: ""}
+    this.handleSubmit =this.handleSubmit.bind(this);
     this.showDetails = this.showDetails.bind(this);
   }
 
@@ -25,6 +30,24 @@ class Bills extends React.Component {
         }
       }
     )
+  }
+
+  update(field) {
+		return e => this.setState({
+			[field]: e.currentTarget.value
+		});
+	}
+
+  handleSubmit(bill_id){
+    return e => {
+      e.preventDefault();
+      let { body, username, date } = this.state;
+      let comment = { body, username, date, bill_id: bill_id }
+      debugger;
+      this.props.createComment(comment);
+      this.setState({ body: ""});
+    }
+
   }
 
   render() {
@@ -112,6 +135,8 @@ class Bills extends React.Component {
 
                     <div className="comments">
                       <CommentContainer bill_id={bill.id} />
+                      <textarea className="post-comment-body" placeholder="Add a comment..." onChange={this.update("body")} value={this.state.body}/>
+                      <button className="post-comment-btn" onClick={this.handleSubmit(bill.id)}>Post</button>
                     </div>
                   </div>
                 </div>

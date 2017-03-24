@@ -9,7 +9,7 @@ class LeftSidebar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick (e){
+  handleClick (){
     return e => {
       e.preventDefault();
       fetchBills();

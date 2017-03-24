@@ -12,6 +12,7 @@ class Friends extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteThisFriend = this.deleteThisFriend.bind(this);
     this.filterByFriend = this.filterByFriend.bind(this);
   }
   componentDidMount() {
@@ -40,6 +41,13 @@ class Friends extends React.Component {
     this.setState({ modalOpen: false });
   }
 
+  deleteThisFriend(friend){
+    return e => {
+      e.preventDefault();
+      this.props.deleteFriend(friend);
+    }
+  }
+
   filterByFriend(friendId){
     return e => {
       e.preventDefault();
@@ -52,7 +60,7 @@ class Friends extends React.Component {
     let friendsList;
     if (friends[0] !== undefined) {
       friendsList = friends.map(friend => (
-        <a href="" className="friend" onClick={this.filterByFriend(friend.id)}
+          <a href="" className="friend" onClick={this.filterByFriend(friend.id)}
             key={friend.id}><i className="fa fa-user" aria-hidden="true"></i>{friend.name}</a>
       ))
     }
