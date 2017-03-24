@@ -1,8 +1,12 @@
 class Api::CommentsController < ApplicationController
   def index
-    # render json: Comment.all.where(bill_id: bill_id)
-    comments = Bill.find(params[:bill_id]).comments
-    render json: comments
+    render json: Comment.all.where(bill_id: params[:bill_id])
+    # comments = Bill.find(params[:bill_id]).comments
+    # render json: comments
+  end
+
+  def show
+    # render json: Comment.find(params[:id])
   end
 
   def create

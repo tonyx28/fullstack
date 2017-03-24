@@ -1,7 +1,8 @@
-export const fetchBills = () => (
+export const fetchBills = (friend_id) => (
   $.ajax({
     method: 'GET',
-    url: '/api/bills'
+    url: '/api/bills',
+    data: { friend_id }
   })
 )
 

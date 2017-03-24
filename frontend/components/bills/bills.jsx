@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentContainer from '../comment/comment_container';
 
 class Bills extends React.Component {
   constructor(props){
@@ -13,12 +13,9 @@ class Bills extends React.Component {
   }
 
   showDetails(showId){
-    // e.preventDefault();
-
     return (
-
       e => {
-        // debugger;
+        e.preventDefault();
         let details = document.getElementById(showId)
         if (details.style.display === 'none'){
           details.style.display = 'block';
@@ -113,6 +110,7 @@ class Bills extends React.Component {
 
                     <div className="comments">
                       Comments go here:
+                      <CommentContainer bill_id={bill.id} />
                     </div>
                   </div>
                 </div>

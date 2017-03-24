@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchComments, createComment, deleteComment } from '../../actions/comment_actions';
-import Comment from './comment'
+import { fetchComments, fetchComment, createComment, deleteComment } from '../../actions/comment_actions';
+
+import Comment from './comment';
 
 
-const mapStateToProps ({ session, comments }, {bill_Id}) => {
-  return ({ currentUser: session.currentUser, comments, bill_Id })
+const mapStateToProps = ({ session, comments }, {bill_id}) => {
+  // debugger;
+  return ({
+    currentUser: session.currentUser,
+    bill_id,
+    comments
+  })
 }
 
 const mapDispatchToProps = dispatch => ({

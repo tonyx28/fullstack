@@ -21,6 +21,7 @@ class Bill < ApplicationRecord
   validates :description, :cost, :user_id, :friend_id, presence: true
 
   belongs_to :user
+  belongs_to :friend
 
   has_many :comments
 end

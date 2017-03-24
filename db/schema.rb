@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322191534) do
+ActiveRecord::Schema.define(version: 20170323225912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170322191534) do
   create_table "comments", force: :cascade do |t|
     t.text     "body",                              null: false
     t.text     "username"
-    t.date     "date",       default: '2017-03-22'
+    t.date     "date",       default: '2017-03-23'
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "bill_id"
   end
 
   create_table "debts", force: :cascade do |t|

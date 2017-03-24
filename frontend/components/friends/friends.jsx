@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Modal from 'react-modal';
 import ModalStyle from './modal_style';
+
 // import values from 'lodash/values';
 
 class Friends extends React.Component {
@@ -11,6 +12,7 @@ class Friends extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.filterByFriend = this.filterByFriend.bind(this);
   }
   componentDidMount() {
     this.props.fetchFriends();
@@ -38,17 +40,19 @@ class Friends extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  disableDefault(e){
-    e.preventDefault();
+  filterByFriend(friendId){
+    return e => {
+      e.preventDefault();
+      this.props.fetchBills(friendId);
+    };
   }
-
   render() {
     const { friends, deleteFriend } = this.props
 
     let friendsList;
     if (friends[0] !== undefined) {
       friendsList = friends.map(friend => (
-        <a href="" className="friend" onClick={this.disableDefault}
+        <a href="" className="friend" onClick={this.filterByFriend(friend.id)}
             key={friend.id}><i className="fa fa-user" aria-hidden="true"></i>{friend.name}</a>
       ))
     }

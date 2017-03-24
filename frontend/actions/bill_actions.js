@@ -21,8 +21,8 @@ export const removeBill = bill => ({
   bill
 });
 
-export const fetchBills = () => dispatch => (
-  BillApiUtil.fetchBills().then(bills => dispatch(receiveBills(bills)))
+export const fetchBills = (friend_id) => dispatch => (
+  BillApiUtil.fetchBills(friend_id).then(bills => dispatch(receiveBills(bills)))
 );
 
 export const createBill = bill => dispatch => (
@@ -33,6 +33,6 @@ export const deleteBill = bill => dispatch => (
   BillApiUtil.deleteBill(bill).then(bill => dispatch(removeBill(bill)))
 );
 
-// window.fetchBills = fetchBills;
+window.fetchBills = fetchBills;
 // window.createBill = createBill;
 // window.deleteBill = deleteBill;

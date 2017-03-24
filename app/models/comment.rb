@@ -8,6 +8,7 @@
 #  date       :date             default("2017-03-22")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  bill_id    :integer
 #
 
 class Comment < ApplicationRecord

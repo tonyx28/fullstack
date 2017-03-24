@@ -1,6 +1,10 @@
 class Api::BillsController < ApplicationController
   def index
-    render json: Bill.all.where(user_id: current_user.id)
+    if params[:friend_id] == nil
+      render json: Bill.all.where(user_id: current_user.id)
+    else
+      render json: Bill.all.where(user_id: current_user.id).where(friend_id: params[:friend_id])
+    end
   end
 
   def show
@@ -13,12 +17,15 @@ class Api::BillsController < ApplicationController
     @bill.owed_amt = owed_amt
 
     friend = Friend.find_by(id: @bill.friend_id)
-
-    # if (@bill.paid_by_friend)
-    #   friend.paid_amt += owed_amt
-    # else
-    #   friend.owed_amt += owed_amt
-    # end
+    puts friend
+    puts friend.owed_amt
+    puts friend.paid_amt
+    
+    if (@bill.paid_by_friend)
+      friend.paid_amt += owed_amt
+    else
+      friend.owed_amt += owed_amt
+    end
 
     if @bill.save
       # friend.save

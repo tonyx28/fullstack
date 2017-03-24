@@ -1,14 +1,22 @@
 export const fetchComments = bill_id => (
   $.ajax({
     method: 'GET',
-    url: `/api/bills/${bill_id}/comments`
+    url: `/api/comments`,
+    data: { bill_id }
   })
 )
 
-export const createComment = (bill_id, comment) => (
+// export const fetchComment = comment => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `/api/comments/${comment.id}`
+//   })
+// )
+
+export const createComment = comment => (
   $.ajax({
     method: 'POST',
-    url: `/api/bills/${bill_id}/comments`,
+    url: `/api/comments`,
     data: { comment }
   })
 )
