@@ -21,7 +21,7 @@ All of the React components, Redux action creators, API utilities, dispatcher, a
 jQuery is only used to make AJAX requests with the Rails server.
 
 
-## Others
+## Open Source React Libraries
 
 Other frontend dependencies are:
 
