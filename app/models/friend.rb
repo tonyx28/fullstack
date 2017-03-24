@@ -19,4 +19,18 @@ class Friend < ApplicationRecord
   belongs_to :user
   has_many :bills
 
+  def owes(amt)
+    self.owed_amt += amt
+    self.calc_balance
+  end
+
+  def paid(amt)
+    self.paid_amt += amt
+    self.calc_balance
+  end
+
+  def calc_balance
+    self.net_balance = self.owed_amt - self.paid_amt
+  end
+
 end
