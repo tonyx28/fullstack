@@ -5,7 +5,7 @@ import Comment from './comment';
 
 
 const mapStateToProps = ({ session, comments }, {bill_id}) => {
-
+  // debugger;
   return ({
     currentUser: session.currentUser,
     bill_id,
@@ -15,7 +15,7 @@ const mapStateToProps = ({ session, comments }, {bill_id}) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchComments: bill_id => dispatch(fetchComments(bill_id)),
-  createComment: comment => dispatch(createComment(comment)),
+  createComment: comment => dispatch(fetchComment(comment)),
   deleteComment: comment => dispatch(deleteComment(comment))
 })
 

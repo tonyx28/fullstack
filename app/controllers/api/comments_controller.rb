@@ -1,10 +1,6 @@
 class Api::CommentsController < ApplicationController
   def index
-    if params[:bill_id] == nil
-      render json: Comment.all
-    else
-      render json: Comment.all.where(bill_id: params[:bill_id])
-    end
+    render json: Comment.all.where(bill_id: params[:bill_id])
     # comments = Bill.find(params[:bill_id]).comments
     # render json: comments
   end

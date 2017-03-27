@@ -16,7 +16,6 @@
   border-bottom: 1px solid #eee;
   padding: 10px;
   font-family: 'Latos', sans-serif;
-  text-rendering: optimizeLegibility;
 
 }
 
@@ -110,7 +109,6 @@
   display: table-row-group;
   width: 530px;
   padding: 15px;
-  font-family: 'Latos', sans-serif;
 }
 
 .bill-table-top {
@@ -141,7 +139,7 @@
   padding-bottom: 3px;
   .payer {
     display: flex;
-    align-self: center;
+
   }
   .debtor {
     display: flex;
@@ -152,31 +150,14 @@
   padding: 10px 0 0;
 }
 hr {
-  margin: 5px;
+  margin: 0;
   border-bottom: none;
   border-left: none;
   border-right: none;
   border-top: 1px solid #ddd;
-
+  padding: 10px;
 }
 .bill-icon {
   width: 35px;
   height: 60px;
-}
-
-.bill-dets {
-  font-size: 16px;
-}
-
-.bill-cost {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.bill-dets-cost {
-  margin-left: 3px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

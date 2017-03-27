@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 20170323225912) do
   end
 
   create_table "debts", force: :cascade do |t|
-    t.integer  "friend_id",                 null: false
-    t.integer  "bill_id",                   null: false
-    t.float    "paid_share",  default: 0.0, null: false
-    t.float    "owed_share",  default: 0.0, null: false
-    t.float    "net_balance", default: 0.0, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "friend_id",   null: false
+    t.integer  "bill_id",     null: false
+    t.float    "paid_share",  null: false
+    t.float    "owed_share",  null: false
+    t.float    "net_balance", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "friends", force: :cascade do |t|

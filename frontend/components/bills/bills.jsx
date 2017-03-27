@@ -10,7 +10,6 @@ class Bills extends React.Component {
 
   componentDidMount(){
     this.props.fetchBills();
-    this.props.fetchComments();
   }
 
   showDetails(showId){
@@ -29,8 +28,7 @@ class Bills extends React.Component {
 
 
   render() {
-    const { bills, session, friends, comments } = this.props;
-
+    const { bills, session, friends } = this.props;
     const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL",
                         "AUG", "SEP", "OCT", "NOV", "DEC"]
 
@@ -91,7 +89,7 @@ class Bills extends React.Component {
                 <div>
                   <div className="bill-table-top">
                     <img className="bill-icon" src="https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png"/>
-                    <div className="bill-dets-cost">
+                    <div>
                       <div className="bill-dets">{bill.description}</div>
                       <div className="bill-cost">${bill.cost.toFixed(2)}</div>
                     </div>
@@ -112,6 +110,7 @@ class Bills extends React.Component {
                     </div>
 
                     <div className="comments">
+                      Comments go here:
                       <CommentContainer bill_id={bill.id} />
                     </div>
                   </div>

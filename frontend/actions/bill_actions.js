@@ -37,6 +37,6 @@ export const deleteBill = bill => dispatch => (
   BillApiUtil.deleteBill(bill).then(bill => dispatch(removeBill(bill)))
 );
 
-// window.fetchBills = fetchBills;
+window.fetchBills = fetchBills;
 // window.createBill = createBill;
 // window.deleteBill = deleteBill;
