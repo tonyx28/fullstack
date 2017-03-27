@@ -12,8 +12,7 @@ const mapDispatchToProps = dispatch => ({
   createBill: bill => dispatch(createBill(bill)),
   updateBill: bill => dispatch(updateBill(bill)),
   deleteBill: bill => dispatch(deleteBill(bill)),
-  fetchComments: () => dispatch(fetchComments()),
-  createComment: comment => dispatch(createComment(comment))
+  fetchComments: () => dispatch(fetchComments())
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Bills);

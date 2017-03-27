@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
   createFriend: friend => dispatch(createFriend(friend)),
   updateFriend: friend => dispatch(updateFriend(friend)),
   deleteFriend: friend => dispatch(deleteFriend(friend)),
-  fetchBills: bill_id => dispatch(fetchBills(bill_id))
+  fetchBills: friend_id => dispatch(fetchBills(friend_id))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Friends);

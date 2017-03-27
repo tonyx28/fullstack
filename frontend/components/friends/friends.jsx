@@ -27,6 +27,11 @@ class Friends extends React.Component {
     this.closeModal()
   }
 
+  handleClick (e){
+    e.preventDefault();
+    this.props.fetchBills();
+  }
+
   update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
@@ -67,6 +72,7 @@ class Friends extends React.Component {
 
     return(
       <div className="friends-container">
+        <a href="" className="all-expenses-link" onClick={this.handleClick}><i className="fa fa-list" aria-hidden="true"></i>All expenses</a>
         <div className="friends-title">
           <a>FRIENDS</a>
           <a className="add-btn" onClick={this.openModal}><i className="fa fa-user-plus" aria-hidden="true"></i></a>

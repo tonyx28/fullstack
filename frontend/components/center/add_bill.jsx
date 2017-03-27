@@ -5,7 +5,7 @@ import ModalStyle from './modal_style';
 class AddBill extends React.Component {
   constructor(props){
     super(props);
-    this.state = { description: "", cost: 0, user_id: this.props.currentUser.id, friend_id: null, modalOpen: false };
+    this.state = { description: "", cost: 0, user_id: this.props.currentUser.id, friend_id: "", date: "", modalOpen: false };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,10 +13,11 @@ class AddBill extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let { description, cost, user_id, friend_id } = this.state;
-    let bill = {description, cost, user_id, friend_id}
-    this.props.createBill(bill)
-    this.closeModal()
+    let { description, cost, user_id, friend_id, date } = this.state;
+    let bill = {description, cost, user_id, friend_id, date};
+    this.props.createBill(bill);
+    this.setState({friend_id: ""});
+    this.closeModal();
   }
 
   update(field) {
@@ -60,8 +61,8 @@ class AddBill extends React.Component {
           <br/>
 
           <form className="bill-form" onSubmit={this.handleSubmit}>
-            <select className="bill-input" onChange={this.update("friend_id")}>
-              <option disabled value="" >Select a friend</option>
+            <select value={this.state.friend_id} className="bill-input" onChange={this.update("friend_id")}>
+              <option value="" disabled >Select a friend</option>
               {friendsList}
             </select>
             <br/>

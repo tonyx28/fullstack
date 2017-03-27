@@ -5,9 +5,24 @@ class Comment extends React.Component{
   constructor(props){
     super(props)
 
+    this.state = { body: "",
+                   username: this.props.currentUser.username,
+                   date: new Date(),
+                   bill_id: this.props.bill_id}
+    this.handleSubmit =this.handleSubmit.bind(this);
   }
 
+  update(field) {
+		return e => this.setState({
+			[field]: e.currentTarget.value
+		});
+	}
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.createComment(this.state);
+    this.setState({ body: ""});
+  }
 // comments.filter(obj => obj.bill_id === bill_id)
 
   render(){
@@ -38,6 +53,8 @@ class Comment extends React.Component{
         <ul>
           {commentList}
         </ul>
+        <textarea className="post-comment-body" placeholder="Add a comment..." onChange={this.update("body")} value={this.state.body}/>
+        <button className="post-comment-btn" onClick={this.handleSubmit}>Post</button>
       </div>
     )
 
