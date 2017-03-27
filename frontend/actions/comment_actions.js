@@ -20,10 +20,11 @@ export const removeComment = comment => ({
 export const fetchComments = bill_id => dispatch => (
   CommentApiUtil.fetchComments(bill_id).then(comments => dispatch(receiveComments(comments)))
 );
-
+//
 // export const fetchComment = comment => dispatch => (
 //   CommentApiUtil.fetchComment(comment).then(comment => dispatch(receiveComment(comment)))
 // );
+
 export const createComment = comment => dispatch => (
   CommentApiUtil.createComment(comment).then(comment => dispatch(receiveComment(comment)))
 );

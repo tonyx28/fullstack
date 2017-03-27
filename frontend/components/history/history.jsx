@@ -1,29 +1,12 @@
 import React from 'react';
-import { fetchBills } from '../../util/bill_api_util';
 
-class History extends React.Component {
-  constructor(){
-    super();
+const History = () => {
 
-    this.state = {}
-  }
 
-  componentWillMount(){
-    fetchBills(null,true).then(obj => history = JSON.parse(obj).responseText);
-  }
+  return(
 
-  render() {
-    let history;
 
-    return(
-      <div className="transaction-history">
-
-      </div>
-    )
-  }
-
+  )
 
 
 }
-
-export default History;

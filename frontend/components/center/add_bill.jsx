@@ -62,7 +62,7 @@ class AddBill extends React.Component {
 
           <form className="bill-form" onSubmit={this.handleSubmit}>
             <select value={this.state.friend_id} className="bill-input" onChange={this.update("friend_id")}>
-              <option value="" disabled >Select a friend</option>
+              <option disabled value="" >Add a friend</option>
               {friendsList}
             </select>
             <br/>

@@ -9,7 +9,8 @@ export const fetchComments = bill_id => (
 // export const fetchComment = comment => (
 //   $.ajax({
 //     method: 'GET',
-//     url: `/api/comments/${comment.id}`
+//     url: `/api/comments/${comment.id}`,
+//     data: {comment }
 //   })
 // )
 

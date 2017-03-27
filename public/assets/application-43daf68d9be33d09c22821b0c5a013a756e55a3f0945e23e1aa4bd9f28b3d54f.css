@@ -576,13 +576,6 @@ input[type="submit"] {
   font-family: 'Roboto', sans-serif;
 }
 
-/* line 121, /Users/tonyxie/Desktop/tripsplit/project/app/assets/stylesheets/components/friends/friends.scss */
-.friend-list-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 /* line 1, /Users/tonyxie/Desktop/tripsplit/project/app/assets/stylesheets/components/center/dashboard_button.scss */
 .dashbtn {
   font-family: 'Roboto', sans-serif;

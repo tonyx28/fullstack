@@ -28,5 +28,3 @@ export const deleteBill = bill => (
     url: `api/bills/${bill.id}`
   })
 )
-
-window.fetchBills = fetchBills;

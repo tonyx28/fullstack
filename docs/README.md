@@ -29,11 +29,11 @@ sufficient CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: /wireframes
-[components]: /component-hierarchy.md
-[sample-state]: /sample-state.md
-[api-endpoints]: /api-endpoints.md
-[schema]: /schema.md
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 
@@ -48,7 +48,7 @@ the API.
 
 ### Phase 3: Bills (3 days)
 
-**Objective:** Bills can be created, read, and destroyed through the API.
+**Objective:** Bills can be created, read, edited and destroyed through the API.
 
 ### Phase 4: Transaction History (2 day)
 

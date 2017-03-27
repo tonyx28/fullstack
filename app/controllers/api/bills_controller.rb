@@ -1,18 +1,10 @@
 class Api::BillsController < ApplicationController
   def index
-<<<<<<< HEAD
-    puts params[:limit]
-    if params[:limit] == "true"
-      puts "grabbing transaction history"
+    if params[:limit] == true
       render json: Bill.all.where(user_id: current_user.id).limit(10)
     elsif params[:friend_id] == nil
-      puts "all"
-=======
-    if params[:friend_id] == nil
->>>>>>> parent of 9ceb536... completed comments and related styling
       render json: Bill.all.where(user_id: current_user.id)
     else
-      puts "by friend"
       render json: Bill.all.where(user_id: current_user.id).where(friend_id: params[:friend_id])
     end
   end
@@ -26,16 +18,14 @@ class Api::BillsController < ApplicationController
     owed_amt = @bill.cost / 2
     @bill.owed_amt = owed_amt
 
-    friend = Friend.find_by(id: @bill.friend_id)
-    puts friend
-    puts friend.owed_amt
-    puts friend.paid_amt
-    
-    if (@bill.paid_by_friend)
-      friend.paid_amt += owed_amt
-    else
-      friend.owed_amt += owed_amt
-    end
+    # friend = Friend.find_by(id: @bill.friend_id)
+    #
+    #
+    # if (@bill.paid_by_friend)
+    #   friend.paid(owed_amt)
+    # else
+    #   friend.owes(owed_amt)
+    # end
 
     if @bill.save
       # friend.save

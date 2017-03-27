@@ -29,14 +29,10 @@ export const createBill = bill => dispatch => (
   BillApiUtil.createBill(bill).then(bill => dispatch(receiveBill(bill)))
 );
 
-export const updateBill = bill => dispatch => (
-  BillApiUtil.udpateBill(bill).then(bill => dispatch(receiveBill(bill)))
-);
-
 export const deleteBill = bill => dispatch => (
   BillApiUtil.deleteBill(bill).then(bill => dispatch(removeBill(bill)))
 );
 
-window.fetchBills = fetchBills;
+// window.fetchBills = fetchBills;
 // window.createBill = createBill;
 // window.deleteBill = deleteBill;

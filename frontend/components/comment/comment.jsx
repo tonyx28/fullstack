@@ -4,16 +4,11 @@ import CommentContainer from './comment_container';
 class Comment extends React.Component{
   constructor(props){
     super(props)
-
     this.state = { body: "",
                    username: this.props.currentUser.username,
                    date: new Date(),
                    bill_id: this.props.bill_id}
     this.handleSubmit =this.handleSubmit.bind(this);
-  }
-
-  componentDidMount(){
-    this.props.fetchComments(this.props.bill_id);
   }
 
   update(field) {
@@ -24,26 +19,23 @@ class Comment extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createComment(this.state)
+    this.props.createComment(this.state);
+    this.setState({ body: ""});
   }
-<<<<<<< HEAD
-// comments.filter(obj => obj.bill_id === bill_id)
-=======
->>>>>>> parent of 9ceb536... completed comments and related styling
+
+
 
   render(){
-    let { comments, bill_id } = this.props
+    const { comments, bill_id } = this.props
     let commentList;
+    let commentsByBillId = [];
 
-<<<<<<< HEAD
-    if (comments[0] !== undefined){
-      commentsByBillId = comments.filter(obj => obj.bill_id === bill_id);
-
-      commentList = commentsByBillId.map(comment => (
-=======
     if (comments[0] !== undefined)
-      commentList = comments.map(comment => (
->>>>>>> parent of 9ceb536... completed comments and related styling
+      comments.forEach (comment => {
+        if (comment.bill_id === bill_id){
+          commentsByBillId.push(comment);
+      }});
+      commentList = commentsByBillId.map(comment => (
         <li key={comment.id} className="comment-item">
           <div className="comment-header">
             <div className="comment-user">{comment.username}</div>
@@ -52,9 +44,14 @@ class Comment extends React.Component{
           <div className="comment-body">{comment.body}</div>
         </li>
       ))
-    }
+
     return(
       <div className="comment-list">
+        <div className="comment-section-header">
+          <i className="fa fa-comment" aria-hidden="true"></i>
+          NOTES AND COMMENTS
+        </div>
+
         <ul>
           {commentList}
         </ul>
