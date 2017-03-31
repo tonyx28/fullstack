@@ -29,10 +29,8 @@ Tripsplit is a single-page application built on Rails and React.js with Redux, w
 - [Backend technology][backend]
 - [Frontend technology][frontend]
 
-
-[chime]: https://chime.audio
-[home page]: ./docs/screenshots/welcome.png "Tripsplit home page"
-[details]: ./docs/screenshots/details.png "Bill details"
+[home page]: http://res.cloudinary.com/dogzxn5h4/image/upload/v1490983629/images/welcome.png "Tripsplit home page"
+[details]: http://res.cloudinary.com/dogzxn5h4/image/upload/v1490983601/images/details.png "Bill details"
 [proposal]: ./docs/proposal.md
 [schema]: ./docs/schema.md
 [backend]: ./docs/backend.md
