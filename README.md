@@ -1,6 +1,6 @@
 # TripSplit
 
-[TripSplit live][heroku] is a web application inspired by SplitWise that allows you to track travel expenses you share with friends. It utilizes a Ruby on Rails backend, a PostgreSQL database, and React.js with a Redux architectural framework
+[TripSplit][heroku] is a web application inspired by SplitWise that allows you to track travel expenses you share with friends. It utilizes a Ruby on Rails backend, a PostgreSQL database, and React.js with a Redux architectural framework
 
 ![image of homepage][home page]
 
@@ -35,4 +35,4 @@ Tripsplit is a single-page application built on Rails and React.js with Redux, w
 [schema]: ./docs/schema.md
 [backend]: ./docs/backend.md
 [frontend]: ./docs/frontend.md
-[heroku]: http://tripsplit28.heroku.com
+[heroku]: https://tripsplit28.herokuapp.com/#/
