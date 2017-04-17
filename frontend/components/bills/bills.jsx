@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentContainer from '../comment/comment_container';
+import DateIcon from './date_icon';
 
 class Bills extends React.Component {
   constructor(props){
@@ -30,9 +31,6 @@ class Bills extends React.Component {
   render() {
     const { bills, session, friends, comments } = this.props;
 
-    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL",
-                        "AUG", "SEP", "OCT", "NOV", "DEC"]
-
     let billsList;
     if (bills[0] !== undefined){
 
@@ -60,14 +58,7 @@ class Bills extends React.Component {
             <div className="bill-click" onClick={this.showDetails(showId)} >
               <div className="bill-small">
                 <div className="bill-header">
-                  <div className="bill-date" >
-                    <div className="month">
-                      {monthNames[month]}
-                    </div>
-                    <div className="day">
-                      {day}
-                    </div>
-                  </div>
+                  <DateIcon month={month} day={day} />
                   <div className="category-icon">
                     <img src="https://s3.amazonaws.com/splitwise/uploads/category/icon/slim/uncategorized/general.png"/>
                   </div>
