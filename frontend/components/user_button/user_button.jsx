@@ -27,7 +27,7 @@ class UserButton extends React.Component {
           {this.props.currentUser.username}
           </button>
         <div id="myDropdown" className="user-dropdown-content">
-          <a href="" className="dropdown-item" id="settings-btn">Settings</a>
+
           <a href="" className="dropdown-item" id="logout-btn" onClick={this.logout}>Log out</a>
         </div>
       </div>
@@ -35,6 +35,7 @@ class UserButton extends React.Component {
   }
 }
 
+          // <a href="" className="dropdown-item" id="settings-btn">Settings</a>
 
 export default UserButton;
 

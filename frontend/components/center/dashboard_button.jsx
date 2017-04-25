@@ -7,7 +7,7 @@ class DashboardButton extends React.Component {
     return(
       <div className="dash-btns">
         <AddBillContainer />
-        <button className="dashbtn" id="dashbtn-mint">Settle up</button>
+
       </div>
 
     )
@@ -15,3 +15,5 @@ class DashboardButton extends React.Component {
 }
 
 export default DashboardButton;
+
+// <button className="dashbtn" id="dashbtn-mint">Settle up</button>

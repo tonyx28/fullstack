@@ -86,11 +86,13 @@ class SessionForm extends React.Component {
 			<div>
 				<nav className="login-signup-links">
 					<div className="dropdown">
-		        <button onClick={this.dropDown.bind(this,'login')} className="dropbtn"
-							id="dropbtn-mint">Log in</button>
+		        <button onClick={this.dropDown.bind(this,'login')}
+										className="dropbtn"
+										id="dropbtn-mint">Log in</button>
 						&nbsp; or &nbsp;
-						<button onClick={this.dropDown.bind(this,'signup')} className="dropbtn"
-							id="dropbtn-orange">Sign up</button>
+						<button onClick={this.dropDown.bind(this,'signup')}
+										className="dropbtn"
+										id="dropbtn-orange">Sign up</button>
 		          <div id="myDropdown" className="dropdown-content">
 								<form className="login-form">
 										{this.renderErrors()}
@@ -105,8 +107,12 @@ class SessionForm extends React.Component {
 													 onChange={this.update("password")}
 													 placeholder=" Password"
 													 className="login-input" />
-										<button className="click-btn" id="submit-btn" onClick={this.handleSubmit}>{this.formButton()}</button>
-										<button className="click-btn" id="demo-btn" onClick={this.handleDemo}>Demo</button>
+										<button className="click-btn"
+														id="submit-btn"
+														onClick={this.handleSubmit}>{this.formButton()}</button>
+										<button className="click-btn"
+														id="demo-btn"
+														onClick={this.handleDemo}>Demo</button>
 									</div>
 								</form>
 		          </div>
