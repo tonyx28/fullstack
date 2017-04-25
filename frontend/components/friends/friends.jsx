@@ -28,7 +28,6 @@ class Friends extends React.Component {
   }
 
   handleClick (e){
-    debugger;
     e.preventDefault();
     this.props.fetchBills();
   }

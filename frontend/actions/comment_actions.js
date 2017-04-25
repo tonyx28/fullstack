@@ -34,5 +34,5 @@ export const deleteComment = comment => dispatch => (
 );
 
 // window.fetchComments = fetchComments;
-window.createComment = createComment;
+// window.createComment = createComment;
 // window.deleteComment = deleteComment;

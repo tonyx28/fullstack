@@ -9,6 +9,7 @@ const commentReducer = (state = [], action) => {
     case RECEIVE_COMMENTS:
       return action.comments;
     case RECEIVE_COMMENT:
+      console.log("update store")
       const newComment = {[action.comment.id]:action.comment}
       return merge([], state, newComment);
     case REMOVE_COMMENT:

@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentContainer from './comment_container';
 
+
 class Comment extends React.Component{
   constructor(props){
     super(props)
@@ -32,7 +33,7 @@ class Comment extends React.Component{
 
     if (comments[0] !== undefined)
       comments.forEach (comment => {
-        if (comment.bill_id === bill_id){
+        if ((comment !== undefined) &&(comment.bill_id === bill_id)){
           commentsByBillId.push(comment);
       }});
       commentList = commentsByBillId.map(comment => (
