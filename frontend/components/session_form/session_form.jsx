@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-// import Modal from 'react-modal';
-// import ModalStyle from './modal_style';
+import Modal from 'react-modal';
+import ModalStyle from './modal_style';
 
 
 class SessionForm extends React.Component {
@@ -12,11 +12,21 @@ class SessionForm extends React.Component {
 		this.handleDemo = this.handleDemo.bind(this);
 		this.dropDown = this.dropDown.bind(this);
 		this.clickEvent = this.clickEvent.bind(this);
+		this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
 	}
 
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
 	}
+
+	openModal() {
+    this.setState({ modalOpen: true });
+  }
+
+  closeModal(){
+    this.setState({ modalOpen: false });
+  }
 
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
@@ -90,7 +100,7 @@ class SessionForm extends React.Component {
 										className="dropbtn"
 										id="dropbtn-mint">Log in</button>
 						&nbsp; or &nbsp;
-						<button onClick={this.dropDown.bind(this,'signup')}
+						<button onClick={this.openModal}
 										className="dropbtn"
 										id="dropbtn-orange">Sign up</button>
 		          <div id="myDropdown" className="dropdown-content">
@@ -117,13 +127,80 @@ class SessionForm extends React.Component {
 								</form>
 		          </div>
 		      </div>
+
+					<Modal
+						contentLabel="Modal"
+						isOpen={this.state.modalOpen}
+						onRequestClose={this.closeModal}
+						style={ModalStyle}>
+						<label className="signup">
+							Sign Up</label>
+						<br/>
+
+						<form className="signup-form" onSubmit={this.handleSubmit}>
+
+							{this.renderErrors()}
+							<div className="login-contents">
+								<input type="text"
+											 value={this.state.username}
+											 onChange={this.update("username")}
+											 placeholder=" Username"
+											 className="login-input" />
+								<input type="password"
+											 value={this.state.password}
+											 onChange={this.update("password")}
+											 placeholder=" Password"
+											 className="login-input" />
+								<button className="click-btn"
+												id="submit-btn"
+												onClick={this.handleSubmit}>{this.formButton()}</button>
+								<button className="click-btn"
+												id="demo-btn"
+												onClick={this.handleDemo}>Demo</button>
+							</div>
+							<input className="signup-btn" type="submit" value="Sign up for TripSplit" />
+						</form>
+					</Modal>
+
 				</nav>
 			</div>
 		);
 	}
 
 }
-
+// <Modal
+// 	contentLabel="Modal"
+// 	isOpen={this.state.modalOpen}
+// 	onRequestClose={this.closeModal}
+// 	style={ModalStyle}>
+// 	<label className="signup">
+// 		Sign Up</label>
+// 	<br/>
+//
+// 	<form className="signup-form" onSubmit={this.handleSubmit}>
+//
+// 		{this.renderErrors()}
+// 		<div className="login-contents">
+// 			<input type="text"
+// 						 value={this.state.username}
+// 						 onChange={this.update("username")}
+// 						 placeholder=" Username"
+// 						 className="login-input" />
+// 			<input type="password"
+// 						 value={this.state.password}
+// 						 onChange={this.update("password")}
+// 						 placeholder=" Password"
+// 						 className="login-input" />
+// 			<button className="click-btn"
+// 							id="submit-btn"
+// 							onClick={this.handleSubmit}>{this.formButton()}</button>
+// 			<button className="click-btn"
+// 							id="demo-btn"
+// 							onClick={this.handleDemo}>Demo</button>
+// 		</div>
+// 		<input className="signup-btn" type="submit" value="Sign up for TripSplit" />
+// 	</form>
+// </Modal>
 export default withRouter(SessionForm);
 
 window.onClick = function(event) {
