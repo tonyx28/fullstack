@@ -7,9 +7,7 @@ end
 
 gem 'annotate'
 gem 'bcrypt'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'pry-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
@@ -42,6 +40,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :test do
